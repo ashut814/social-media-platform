@@ -9,7 +9,7 @@ import com.social.media.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+ 
 import com.social.media.models.Post;
 import com.social.media.models.SocialGroup;
 
