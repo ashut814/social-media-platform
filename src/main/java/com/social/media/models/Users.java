@@ -1,6 +1,7 @@
 package com.social.media.models;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,19 +9,23 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Users {
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
-
-
 
     @OneToOne
     @JoinColumn(name = "profile_id")
     private Profile profile;
 
     @OneToMany(mappedBy = "user")
-    private List<Post> posts  = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
